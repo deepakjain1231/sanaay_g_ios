@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomeCollectionCell" customModule="SaNaay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="145"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="145"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYN-5D-cvZ">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="145"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0f-MT-K0g">
+                                <rect key="frame" x="12" y="8" width="370" height="129"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="Purple_color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ece-40-Bm4">
+                                <rect key="frame" x="360" y="61.666666666666657" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="gv5-0l-2Pc"/>
+                                    <constraint firstAttribute="width" secondItem="ece-40-Bm4" secondAttribute="height" multiplier="1:1" id="kXu-55-Khi"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="icon_close_white"/>
+                                <connections>
+                                    <action selector="btn_Action:" destination="gTV-IL-0wX" eventType="touchUpInside" id="8lf-3V-PN8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N0f-MT-K0g" firstAttribute="leading" secondItem="XYN-5D-cvZ" secondAttribute="leading" constant="12" id="6iH-nj-2AQ"/>
+                            <constraint firstAttribute="trailing" secondItem="ece-40-Bm4" secondAttribute="trailing" constant="12" id="EG5-5a-SK7"/>
+                            <constraint firstAttribute="trailing" secondItem="N0f-MT-K0g" secondAttribute="trailing" constant="12" id="K6r-Dh-IYx"/>
+                            <constraint firstItem="N0f-MT-K0g" firstAttribute="top" secondItem="XYN-5D-cvZ" secondAttribute="top" constant="8" id="O3P-pK-ADN"/>
+                            <constraint firstItem="ece-40-Bm4" firstAttribute="centerY" secondItem="N0f-MT-K0g" secondAttribute="centerY" id="fAK-OS-iVI"/>
+                            <constraint firstAttribute="bottom" secondItem="N0f-MT-K0g" secondAttribute="bottom" constant="8" id="tCC-Ux-2eU"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="Purple_color"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="XYN-5D-cvZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DKA-Sv-gEZ"/>
+                <constraint firstAttribute="trailing" secondItem="XYN-5D-cvZ" secondAttribute="trailing" id="Tux-3a-gt1"/>
+                <constraint firstItem="XYN-5D-cvZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="W6h-lu-gkP"/>
+                <constraint firstAttribute="bottom" secondItem="XYN-5D-cvZ" secondAttribute="bottom" id="k86-m6-tHi"/>
+            </constraints>
+            <size key="customSize" width="394" height="145"/>
+            <connections>
+                <outlet property="btn_remove" destination="ece-40-Bm4" id="uUJ-Vq-r9P"/>
+                <outlet property="constraint_btn_remove_height" destination="gv5-0l-2Pc" id="EHN-FG-JeU"/>
+                <outlet property="lbl_Title" destination="N0f-MT-K0g" id="15K-MT-YJ7"/>
+                <outlet property="view_Base" destination="XYN-5D-cvZ" id="2xH-TC-lhZ"/>
+            </connections>
+            <point key="canvasLocation" x="401.52671755725191" y="53.169014084507047"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_close_white" width="12.5" height="12.5"/>
+        <namedColor name="Purple_color">
+            <color red="0.1803921568627451" green="0.40784313725490196" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

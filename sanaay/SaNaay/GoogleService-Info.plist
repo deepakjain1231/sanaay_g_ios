@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>779909624193-08rrjld06l4vvqpmrrm8ak6ltrl5g75j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.779909624193-08rrjld06l4vvqpmrrm8ak6ltrl5g75j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCF4N0rBu2gozgYSMAu-pnc8MLrsOZ5cKE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>779909624193</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sanaay</string>
+	<key>PROJECT_ID</key>
+	<string>double-carport-231409</string>
+	<key>STORAGE_BUCKET</key>
+	<string>double-carport-231409.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:779909624193:ios:9a3864f40b06e42a6a7880</string>
+	<key>DATABASE_URL</key>
+	<string>https://double-carport-231409.firebaseio.com</string>
+</dict>
+</plist>

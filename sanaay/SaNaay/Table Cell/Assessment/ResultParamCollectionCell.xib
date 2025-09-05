@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ResultParamCollectionCell" id="gTV-IL-0wX" userLabel="ResultParamCollectionCell" customClass="ResultParamCollectionCell" customModule="SaNaay_Wellness" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="188"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="188"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-El-1Qv">
+                        <rect key="frame" x="0.0" y="0.0" width="335" height="188"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="f9N-V7-HdI">
+                                <rect key="frame" x="12" y="12" width="313" height="166"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qks-Uq-J9U">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="106"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fwW-XL-Spz">
+                                                <rect key="frame" x="0.0" y="0.0" width="313" height="37"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="LjX-Hp-cBW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="283" height="37"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Fruits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="jcw-Xq-TC5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="283" height="17"/>
+                                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="content " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="meU-HD-hAf">
+                                                                <rect key="frame" x="0.0" y="22" width="283" height="15"/>
+                                                                <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YO7-6N-2ld">
+                                                        <rect key="frame" x="293" y="8.5" width="20" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="63v-I5-SOK"/>
+                                                            <constraint firstAttribute="width" secondItem="YO7-6N-2ld" secondAttribute="height" id="yqe-r4-ben"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemGrayColor"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="s8z-ac-NVW">
+                                        <rect key="frame" x="0.0" y="118" width="313" height="48"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kapha_n" translatesAutoresizingMaskIntoConstraints="NO" id="uvr-jI-QXZ">
+                                                <rect key="frame" x="0.0" y="15" width="18" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="18" id="TH4-gY-Kn6"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Fruits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="i6K-Jp-mVD">
+                                                <rect key="frame" x="30" y="12" width="223" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="qQz-Ev-FTf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bala" translatesAutoresizingMaskIntoConstraints="NO" id="FOp-h6-gty">
+                                                <rect key="frame" x="265" y="0.0" width="48" height="48"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="WBa-gq-xOB"/>
+                                                    <constraint firstAttribute="width" secondItem="FOp-h6-gty" secondAttribute="height" id="tIN-ky-Yac"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uvr-jI-QXZ" firstAttribute="width" secondItem="uvr-jI-QXZ" secondAttribute="height" id="3GT-mV-K0S"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="f9N-V7-HdI" secondAttribute="trailing" constant="10" id="95d-Ji-CyN"/>
+                            <constraint firstItem="f9N-V7-HdI" firstAttribute="leading" secondItem="EC3-El-1Qv" secondAttribute="leading" constant="12" id="dVX-3e-EMS"/>
+                            <constraint firstItem="f9N-V7-HdI" firstAttribute="top" secondItem="EC3-El-1Qv" secondAttribute="top" constant="12" id="eYT-HI-D0Y"/>
+                            <constraint firstAttribute="bottom" secondItem="f9N-V7-HdI" secondAttribute="bottom" constant="10" id="ifY-q7-SpQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.91764705879999997" green="0.32156862749999998" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EC3-El-1Qv" secondAttribute="trailing" id="M2J-W3-40j"/>
+                <constraint firstItem="EC3-El-1Qv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="V6e-Tp-i0B"/>
+                <constraint firstAttribute="bottom" secondItem="EC3-El-1Qv" secondAttribute="bottom" id="nGU-06-Hgp"/>
+                <constraint firstItem="EC3-El-1Qv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nKm-qJ-UMP"/>
+            </constraints>
+            <size key="customSize" width="335" height="188"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiuss">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="infoBtn" destination="YO7-6N-2ld" id="gxO-De-fbu"/>
+                <outlet property="kpvDisplayValueL" destination="i6K-Jp-mVD" id="GbW-6Q-v1L"/>
+                <outlet property="kpvIconIV" destination="uvr-jI-QXZ" id="Aao-nW-Lht"/>
+                <outlet property="paramIconIV" destination="FOp-h6-gty" id="DZf-wF-7QJ"/>
+                <outlet property="subtitleL" destination="meU-HD-hAf" id="9tG-Va-1X4"/>
+                <outlet property="titleL" destination="jcw-Xq-TC5" id="fIa-sp-euB"/>
+                <outlet property="view_BaseBG" destination="EC3-El-1Qv" id="eFN-Pa-amA"/>
+            </connections>
+            <point key="canvasLocation" x="-118" y="99"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Kapha_n" width="55" height="64"/>
+        <image name="bala" width="47" height="48"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

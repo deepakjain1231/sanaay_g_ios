@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "lkrulerpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lalkrishna/LKRulerPicker",
+      "state" : {
+        "revision" : "c7fd719bed050f93b051e397732044519351ddd1",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}

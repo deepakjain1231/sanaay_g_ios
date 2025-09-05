@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="139" id="KGk-i7-Jjw" customClass="RegisterButtonTableCell" customModule="SaNaay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="139"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="418" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-8a-93b" customClass="UIControl">
+                        <rect key="frame" x="20" y="12" width="378" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register as a doctor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW1-5G-Mol">
+                                <rect key="frame" x="113" y="14" width="152.5" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="Purple_color"/>
+                        <constraints>
+                            <constraint firstItem="cW1-5G-Mol" firstAttribute="centerX" secondItem="SOi-8a-93b" secondAttribute="centerX" id="Bv0-2F-9f4"/>
+                            <constraint firstAttribute="height" constant="50" id="JnX-O6-exG"/>
+                            <constraint firstItem="cW1-5G-Mol" firstAttribute="centerY" secondItem="SOi-8a-93b" secondAttribute="centerY" id="YJy-oL-haQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="btn_Register_Action:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5lY-gZ-htb"/>
+                        </connections>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SOi-8a-93b" secondAttribute="bottom" constant="12" id="2gy-Tt-VdM"/>
+                    <constraint firstItem="SOi-8a-93b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6Pr-1P-x0M"/>
+                    <constraint firstItem="SOi-8a-93b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="YGU-2n-9KG"/>
+                    <constraint firstAttribute="trailing" secondItem="SOi-8a-93b" secondAttribute="trailing" constant="20" id="yLg-lJ-q10"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btn_Register" destination="SOi-8a-93b" id="VTL-GB-yfd"/>
+                <outlet property="btn_Title" destination="cW1-5G-Mol" id="fWw-HK-FsE"/>
+                <outlet property="constraint_btn_Register_Bottom" destination="2gy-Tt-VdM" id="N2f-Jx-Qbe"/>
+                <outlet property="constraint_btn_Register_Height" destination="JnX-O6-exG" id="Nxr-uz-eXw"/>
+                <outlet property="constraint_btn_Register_Left" destination="YGU-2n-9KG" id="Vja-9b-IM6"/>
+                <outlet property="constraint_btn_Register_Right" destination="yLg-lJ-q10" id="HdH-Y1-rnn"/>
+                <outlet property="constraint_btn_Register_TOP" destination="6Pr-1P-x0M" id="pNk-UF-7zm"/>
+            </connections>
+            <point key="canvasLocation" x="208.69565217391306" y="101.45089285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Purple_color">
+            <color red="0.1803921568627451" green="0.40784313725490196" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
