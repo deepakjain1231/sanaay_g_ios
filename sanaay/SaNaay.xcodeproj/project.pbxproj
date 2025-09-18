@@ -402,6 +402,7 @@
 		00AFE69B2A585E9400576FDB /* HeaderTitleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AFE6992A585E9400576FDB /* HeaderTitleTableCell.swift */; };
 		00AFE69C2A585E9400576FDB /* HeaderTitleTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00AFE69A2A585E9400576FDB /* HeaderTitleTableCell.xib */; };
 		00BA188B2C20B48E00ED2F6F /* PredictedPrakritiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA188A2C20B48E00ED2F6F /* PredictedPrakritiVC.swift */; };
+		00BD5EE92E795CEF00A0C4F9 /* PDFEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BD5EE82E795CEF00A0C4F9 /* PDFEditorViewController.swift */; };
 		00C30CDB2BD773C7002AC67A /* NoteDoctorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C30CD92BD773C7002AC67A /* NoteDoctorTableCell.swift */; };
 		00C30CDC2BD773C7002AC67A /* NoteDoctorTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C30CDA2BD773C7002AC67A /* NoteDoctorTableCell.xib */; };
 		00C9022C2BCB705A00A2BC4D /* AddPrescriptionsDialouge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C9022A2BCB705A00A2BC4D /* AddPrescriptionsDialouge.swift */; };
@@ -826,6 +827,7 @@
 		00AFE6992A585E9400576FDB /* HeaderTitleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTitleTableCell.swift; sourceTree = "<group>"; };
 		00AFE69A2A585E9400576FDB /* HeaderTitleTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTitleTableCell.xib; sourceTree = "<group>"; };
 		00BA188A2C20B48E00ED2F6F /* PredictedPrakritiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictedPrakritiVC.swift; sourceTree = "<group>"; };
+		00BD5EE82E795CEF00A0C4F9 /* PDFEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFEditorViewController.swift; sourceTree = "<group>"; };
 		00C30CD92BD773C7002AC67A /* NoteDoctorTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDoctorTableCell.swift; sourceTree = "<group>"; };
 		00C30CDA2BD773C7002AC67A /* NoteDoctorTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteDoctorTableCell.xib; sourceTree = "<group>"; };
 		00C9022A2BCB705A00A2BC4D /* AddPrescriptionsDialouge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrescriptionsDialouge.swift; sourceTree = "<group>"; };
@@ -1469,6 +1471,7 @@
 				0035D0DF2C45043C008BC4D7 /* ViewMoreContentLibraryVC.swift */,
 				0065AA552C453AC50087E64F /* ScheduleAppoinmentVC.swift */,
 				0007AC902C4ADCEA00A1284E /* ReportVC.swift */,
+				00BD5EE82E795CEF00A0C4F9 /* PDFEditorViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -2033,6 +2036,7 @@
 				00A0232F2A55B48A004C7C47 /* RegistationModel.swift in Sources */,
 				0064E63C2BBDAE0400EB8EB5 /* RegisterTextViewTableCell.swift in Sources */,
 				0080F5B62BC537D200DE82F6 /* ARBPLOximeterReaderVC+SparshnaAlgo.swift in Sources */,
+				00BD5EE92E795CEF00A0C4F9 /* PDFEditorViewController.swift in Sources */,
 				00A06CE92A3972B20078137D /* HomeVC.swift in Sources */,
 				002154DA2C4664A7003B6B42 /* FoodPreferenceTableCell.swift in Sources */,
 				00AFE6962A581D0400576FDB /* DetailedResultVC.swift in Sources */,
@@ -2221,7 +2225,7 @@
 				CODE_SIGN_ENTITLEMENTS = SaNaay/SaNaay.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 7KU535V94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SaNaay/Info.plist;
@@ -2239,7 +2243,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanaay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2264,7 +2268,7 @@
 				CODE_SIGN_ENTITLEMENTS = SaNaay/SaNaay.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 7KU535V94F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SaNaay/Info.plist;
@@ -2282,7 +2286,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanaay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

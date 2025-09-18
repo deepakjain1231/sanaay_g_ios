@@ -98,11 +98,6 @@ class HomeVC: UIViewController {
     
     @IBAction func btn_AddNewPatient_Action(_ sender: UIControl) {
         let obj = Story_Dashboard.instantiateViewController(withIdentifier: "AddPatientVC") as! AddPatientVC
-        
-        //let obj = SelectAggaravationVC.instantiate(fromAppStoryboard: .Assessment)
-        //let obj = ReportVC.instantiate(fromAppStoryboard: .Assessment)
-        //let obj = Story_Dashboard.instantiateViewController(withIdentifier: "AddHealthComplainVC") as! AddHealthComplainVC
-        //let obj = PredictedPrakritiVC.instantiate(fromAppStoryboard: .Dashboard)
         self.navigationController?.pushViewController(obj, animated: true)
         
         
@@ -230,6 +225,11 @@ extension HomeVC: UISearchBarDelegate {
 
 //MARK: - API CALL
 extension HomeVC {
+    
+    func APICall() {
+        let str_Date = self.arr_filter[int_selected_Indx]["api_date"] as? String ?? ""
+        self.callAPIforGetAppointment(str_date: str_Date)
+    }
     
     func callAPIforGetAppointment(str_date: String) {
         if Connectivity.isConnectedToInternet {

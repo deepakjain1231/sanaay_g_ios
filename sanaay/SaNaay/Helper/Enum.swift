@@ -103,6 +103,7 @@ struct AppMessage {
     static let firebase_token = "firebase_token"
     static let plzWait = "Please wait..."
     static let no_internet = "No Internet Connection"
+    static let generating_report = "Generating Report..."
     
     static let Authorise_Token = "token"
     static let USER_DATA = "user_data"

@@ -13,6 +13,7 @@ import WebKit
 class PatientHistoryVC: UIViewController, WKNavigationDelegate, SFSafariViewControllerDelegate, WKUIDelegate {
     
     var pateitnID = ""
+    var str_pdf_name = ""
     var arr_Data = [PatientListDataResponse?]()
     @IBOutlet weak var tbl_view: UITableView!
     @IBOutlet weak var view_SearchBG: UIView!
@@ -184,12 +185,10 @@ extension PatientHistoryVC: UITableViewDelegate, UITableViewDataSource {
         let str_report = self.arr_Data[indexPath.row]?.report_link ?? ""
 
         if str_report != "" {
-            //str_report = "https://dev.ayurythm.com/SanaayGreport/ViewResultIOS/114"
+            let arr_pdfname = str_report.components(separatedBy: "/")
+            self.str_pdf_name = "sanaay_report_\(arr_pdfname.last ?? "1").pdf"
             
-//            let safariVC = SFSafariViewController(url: URL(string: str_report)!)
-//            self.present(safariVC, animated: true, completion: nil)
-//            safariVC.delegate = self
-
+            
             ShowProgressHud(message: AppMessage.plzWait)
             self.webView_iPad.uiDelegate = self
             self.webView_iPad.navigationDelegate = self
@@ -201,7 +200,6 @@ extension PatientHistoryVC: UITableViewDelegate, UITableViewDataSource {
             else {
                 DismissProgressHud()
             }
-            
         }
         else {
             self.view.makeToast("Something went wrong please retest again")
@@ -212,14 +210,94 @@ extension PatientHistoryVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: - WEB VIEW DELEGATE
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
-            DismissProgressHud()
-            
-            let vc = ReportVC.instantiate(fromAppStoryboard: .Assessment)
-            vc.str_reportLink = self.webView_iPad.accessibilityValue ?? ""
-            self.navigationController?.pushViewController(vc, animated: true)
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+//            DismissProgressHud()
+//            
+//            let vc = ReportVCNew.instantiate(fromAppStoryboard: .Assessment)
+//            vc.str_reportLink = self.webView_iPad.accessibilityValue ?? ""
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+        // Export after a short delay (wait for JS/CSS to finish)
+        //DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            self.handleReportLoading()
+        //}
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.exportToPDF()
         }
         
+    }
+    
+    private func handleReportLoading() {
+        let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = docPath.appendingPathComponent(self.str_pdf_name)
+        
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            // ✅ File already exists → Open directly
+            print("📂 PDF already exists, loading from local")
+            self.moveReportScreen(pdf_fileURL: fileURL)
+        } else {
+            // ❌ File not found → Generate new PDF
+            print("🆕 Generating new PDF")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.exportToPDF()
+            }
+        }
+    }
+    
+    // MARK: - Export to PDF
+    func exportToPDF() {
+        let config = WKPDFConfiguration()
+        
+        self.webView_iPad.createPDF(configuration: config) { result in
+            switch result {
+            case .success(let data):
+                // Save PDF in Documents
+                let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let fileURL = docPath.appendingPathComponent(self.str_pdf_name)
+
+                do {
+                    
+                    // ✅ Remove old file if exists
+                    if FileManager.default.fileExists(atPath: fileURL.path) {
+                        try FileManager.default.removeItem(at: fileURL)
+                        print("🗑 Old PDF removed: \(fileURL)")
+                    }
+                    
+                    
+                    try data.write(to: fileURL)
+                    print("✅ PDF Saved at: \(fileURL)")
+                    self.moveReportScreen(pdf_fileURL: fileURL)
+                    
+                } catch {
+                    print("❌ Failed to save PDF: \(error.localizedDescription)")
+                    Utils.showAlertOkController(title: "", message: "Failed to load PDF", buttons: ["Ok"]) { success in
+                    }
+                }
+
+            case .failure(let error):
+                print("❌ Failed to create PDF: \(error.localizedDescription)")
+                Utils.showAlertOkController(title: "", message: "Failed to load PDF", buttons: ["Ok"]) { success in
+                }
+            }
+        }
+    }
+    
+    func moveReportScreen(pdf_fileURL: URL? = nil) {
+        DismissProgressHud()
+//        let editorVC = PDFEditorViewController()
+//        editorVC.documentURL = pdf_fileURL
+//        editorVC.strFileName = self.str_pdf_name
+//        let nav = UINavigationController(rootViewController: editorVC)
+//        nav.modalPresentationStyle = .fullScreen
+//        self.present(nav, animated: true)
+        
+        
+        let vc = ReportVC.instantiate(fromAppStoryboard: .Assessment)
+        vc.documentURL = pdf_fileURL
+        vc.str_reportLink = pdf_fileURL?.absoluteString ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
