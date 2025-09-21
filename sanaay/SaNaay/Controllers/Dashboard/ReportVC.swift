@@ -42,16 +42,16 @@ class ReportVC: UIViewController, WKNavigationDelegate, SFSafariViewControllerDe
 //        else {
 //            DismissProgressHud()
 //        }
-        
-        if let url = documentURL {
-            let request = URLRequest(url: url)
-            self.webView.load(request)
-            self.webView_iPad.load(request)
+        DispatchQueue.main.async {
+            if let url = self.documentURL {
+                let request = URLRequest(url: url)
+                self.webView.load(request)
+                self.webView_iPad.load(request)
+            }
+            else {
+                DismissProgressHud()
+            }
         }
-        else {
-            DismissProgressHud()
-        }
-        
         
     }
     

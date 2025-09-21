@@ -514,12 +514,15 @@ extension ScheduleAppoinmentVC {
             self.webView_iPad.uiDelegate = self
             self.webView_iPad.navigationDelegate = self
             self.webView_iPad.accessibilityValue = report_link
-            if let url = URL(string: report_link) {
-                let request = URLRequest(url: url)
-                self.webView_iPad.load(request)
-            }
-            else {
-                DismissProgressHud()
+            
+            DispatchQueue.main.async {
+                if let url = URL(string: report_link) {
+                    let request = URLRequest(url: url)
+                    self.webView_iPad.load(request)
+                }
+                else {
+                    DismissProgressHud()
+                }
             }
         }
         else {
@@ -562,10 +565,53 @@ extension ScheduleAppoinmentVC {
 //            self.navigationController?.pushViewController(vc, animated: true)
 //        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            self.exportToPDF()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+//            self.exportToPDF()
+//        }
         
+        
+        // Keep checking until the page is fully loaded
+        waitUntilJSRendered(in: webView) { [weak self] in
+            guard let self = self else { return }
+            print("📄 Page fully loaded, exporting PDF...")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                self.exportToPDF()
+            }
+        }
+    }
+    
+    private func waitUntilJSRendered(in webView: WKWebView, completion: @escaping () -> Void) {
+        let js = """
+        (function() {
+            if (document.readyState !== 'complete') {
+                return false;
+            }
+            // Check if DOM size has stabilized (for JS-rendered content)
+            var body = document.body;
+            var html = document.documentElement;
+            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                  html.clientHeight, html.scrollHeight, html.offsetHeight);
+            
+            if (window.__lastHeight === height) {
+                return true; // Height hasn't changed → assume rendering is done
+            }
+            window.__lastHeight = height;
+            return false;
+        })();
+        """
+
+        webView_iPad.evaluateJavaScript(js) { result, _ in
+            if let isReady = result as? Bool, isReady {
+                print("✅ JS rendering finished")
+                completion()
+            } else {
+                // Retry after short delay
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.waitUntilJSRendered(in: webView, completion: completion)
+                }
+            }
+        }
     }
     
 //    private func handleReportLoading() {

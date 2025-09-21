@@ -3296,7 +3296,7 @@ Join Tavisa's personalized menopause wellness program and embrace this transform
                                     <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uv4-9Y-1P9">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="343.5"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yZ7-78-6Gj">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="343.5"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <userDefinedRuntimeAttributes>
@@ -4083,10 +4083,10 @@ measured as high/medium/low.</string>
                                 </constraints>
                             </view>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRK-K5-3Qz">
-                                <rect key="frame" x="0.0" y="70" width="800" height="597"/>
+                                <rect key="frame" x="0.0" y="70" width="1000" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="800" id="zbn-fJ-0MK"/>
+                                    <constraint firstAttribute="width" constant="1000" id="zbn-fJ-0MK"/>
                                 </constraints>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>

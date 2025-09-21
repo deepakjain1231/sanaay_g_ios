@@ -189,17 +189,21 @@ extension PatientHistoryVC: UITableViewDelegate, UITableViewDataSource {
             self.str_pdf_name = "sanaay_report_\(arr_pdfname.last ?? "1").pdf"
             
             
-            ShowProgressHud(message: AppMessage.plzWait)
+            ShowProgressHud(message: AppMessage.generating_report)
             self.webView_iPad.uiDelegate = self
             self.webView_iPad.navigationDelegate = self
             self.webView_iPad.accessibilityValue = str_report
-            if let url = URL(string: str_report) {
-                let request = URLRequest(url: url)
-                self.webView_iPad.load(request)
+            
+            DispatchQueue.main.async {
+                if let url = URL(string: str_report) {
+                    let request = URLRequest(url: url)
+                    self.webView_iPad.load(request)
+                }
+                else {
+                    DismissProgressHud()
+                }
             }
-            else {
-                DismissProgressHud()
-            }
+            
         }
         else {
             self.view.makeToast("Something went wrong please retest again")
@@ -222,11 +226,85 @@ extension PatientHistoryVC: UITableViewDelegate, UITableViewDataSource {
 //            self.handleReportLoading()
         //}
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.exportToPDF()
+        // Keep checking until the page is fully loaded
+        waitUntilJSRendered(in: webView) { [weak self] in
+            guard let self = self else { return }
+            print("📄 Page fully loaded, exporting PDF...")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                self.exportToPDF()
+            }
         }
         
+        
+        
+        
+        
+//        waitUntilContentIsLoaded(in: webView) { [weak self] in
+//            guard let self = self else { return }
+//            print("📄 Page fully loaded, exporting PDF...")
+//            self.exportToPDF()
+//        }
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            self.exportToPDF()
+//        }
+        
     }
+    
+    private func waitUntilJSRendered(in webView: WKWebView, completion: @escaping () -> Void) {
+        let js = """
+        (function() {
+            if (document.readyState !== 'complete') {
+                return false;
+            }
+            // Check if DOM size has stabilized (for JS-rendered content)
+            var body = document.body;
+            var html = document.documentElement;
+            var height = Math.max(body.scrollHeight, body.offsetHeight,
+                                  html.clientHeight, html.scrollHeight, html.offsetHeight);
+            
+            if (window.__lastHeight === height) {
+                return true; // Height hasn't changed → assume rendering is done
+            }
+            window.__lastHeight = height;
+            return false;
+        })();
+        """
+
+        webView_iPad.evaluateJavaScript(js) { result, _ in
+            if let isReady = result as? Bool, isReady {
+                print("✅ JS rendering finished")
+                completion()
+            } else {
+                // Retry after short delay
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.waitUntilJSRendered(in: webView, completion: completion)
+                }
+            }
+        }
+    }
+    
+    
+    
+//    private func waitUntilContentIsLoaded(in webView: WKWebView, completion: @escaping () -> Void) {
+//        webView_iPad.evaluateJavaScript("document.readyState") { result, error in
+//            if let state = result as? String {
+//                print("🔍 document.readyState = \(state)")
+//                if state == "complete" {
+//                    // ✅ Page fully loaded
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                        completion()
+//                    }
+//                    return
+//                }
+//            }
+//            // Retry after short delay
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//                self.waitUntilContentIsLoaded(in: webView, completion: completion)
+//            }
+//        }
+//    }
     
     private func handleReportLoading() {
         let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
